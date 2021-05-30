@@ -4,15 +4,16 @@ import Banner from '../../assets/images/banner.svg'
 import Heading1 from '../../components/atoms/typography/Heading1'
 import Icon from 'react-native-vector-icons/Ionicons'
 
-const Login = ({ navigation }) => {
+const Register = ({ navigation }) => {
     const [isSecurePass, setIsSecurePass] = useState(true)
+    const [isSecurePass2, setIsSecurePass2] = useState(true)
     return (
         <View style={styles.container}>
             <View style={styles.boxBanner}>
                 <Banner />
             </View>
             <View style={styles.boxTitle}>
-                <Heading1 text="Login" />
+                <Heading1 text="Register" />
             </View>
             <View style={styles.boxInput}>
                 <TextInput 
@@ -34,12 +35,24 @@ const Login = ({ navigation }) => {
                         <Icon name="eye" size={20} color="#A1A3A5"/>
                     </TouchableOpacity>
                 </View>
+                <View style={{marginTop: 16}}>
+                    <TextInput
+                        style={styles.input} 
+                        placeholder="verification password"
+                        placeholderTextColor="#A1A3A5"
+                        selectionColor="#2C2B2E"
+                        secureTextEntry={isSecurePass2}
+                    />
+                    <TouchableOpacity style={styles.inputIcon} onPress={() => setIsSecurePass2(!isSecurePass2)}>
+                        <Icon name="eye" size={20} color="#A1A3A5"/>
+                    </TouchableOpacity>
+                </View>
             </View>
             <View style={styles.boxFooter}>
                 <View style={styles.boxQuestion}>
-                    <Text style={styles.question1}>Don’t have an account?</Text>
-                    <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.replace('Register')}>
-                        <Text style={styles.question2}> Register</Text>
+                    <Text style={styles.question1}>Already have an account? </Text>
+                    <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.replace('Login')}>
+                        <Text style={styles.question2}> Login</Text>
                     </TouchableOpacity>
                 </View>
                 <TouchableOpacity 
@@ -47,7 +60,7 @@ const Login = ({ navigation }) => {
                     activeOpacity={0.8}
                     onPress={() => navigation.replace('Home')}
                 >
-                    <Text style={styles.btnSubmitText}>Login</Text>
+                    <Text style={styles.btnSubmitText}>Register</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -116,4 +129,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Login
+export default Register

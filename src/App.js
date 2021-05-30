@@ -8,13 +8,19 @@
 
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import Router from './config/Router';
+import Home from './pages/Home';
 import Login from './pages/Login';
+import Register from './pages/Register';
 import SplashSceen from './pages/SplashScreen';
 
 const App = () => {
   return (
     // <SplashSceen />
-    <Login />
+    // <Login />
+    // <Register />
+    // <Home />
+    <Router />
   );
 };
 
